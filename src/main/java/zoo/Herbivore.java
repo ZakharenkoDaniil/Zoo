@@ -1,7 +1,9 @@
 package zoo;
+
 /**
  * Class for describing a species of herbivore animal
  */
+
 public class Herbivore extends AnimalSpecies {
 
     /**

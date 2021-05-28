@@ -3,6 +3,7 @@ package zoo;
 /**
  * Possible types of animals
  */
+
 public enum AnimalType {
     /**
      * Carnivore animals

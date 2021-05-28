@@ -8,6 +8,7 @@ import java.util.List;
  * Class for JSON deserialization.
  * JSON contains information about animals of each type
  */
+
 @Getter
 public class AnimalsDataFile {
 

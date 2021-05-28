@@ -4,6 +4,7 @@ package zoo;
  * Class for user-based action trigger.
  * Use it to invoke an event for a concrete zoo
  */
+
 public class ActionTrigger {
 
     /**

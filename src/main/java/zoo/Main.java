@@ -46,5 +46,6 @@ public class Main {
 
         trigger.setMorning();
         zoo.printAllStates();
+
     }
 }

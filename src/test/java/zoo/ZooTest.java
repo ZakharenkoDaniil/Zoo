@@ -108,4 +108,5 @@ class ZooTest {
             assertEquals(AnimalState.MAKE_NOISE, zoo.getAllHerbivoreState());
         }
     }
+
 }

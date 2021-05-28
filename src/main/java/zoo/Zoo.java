@@ -12,6 +12,7 @@ import java.util.List;
 /**
  * Class for concrete zoo
  */
+
 @Getter
 public class Zoo {
     /**

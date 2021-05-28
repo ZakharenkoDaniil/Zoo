@@ -5,6 +5,7 @@ import lombok.Setter;
 /**
  * Class for describing a species of carnivore animal
  */
+
 @Setter
 public class Carnivore extends AnimalSpecies {
 

@@ -3,6 +3,7 @@ package zoo;
 /**
  *  Contains a possible events for the zoo-to-animals communication
  */
+
 public enum Events {
     /**
      *  describes a visit of a zoo keeper

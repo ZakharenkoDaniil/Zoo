@@ -3,6 +3,7 @@ package zoo;
 /**
  * Possible animal states
  */
+
 public enum AnimalState {
         /**
          * Calm state

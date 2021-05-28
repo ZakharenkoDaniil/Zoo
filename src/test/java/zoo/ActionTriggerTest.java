@@ -77,4 +77,5 @@ public class ActionTriggerTest {
         assertEquals(zoo.getAllHerbivoreState(), AnimalState.MAKE_NOISE);
         assertEquals(zoo.getAllCarnivoreState(), AnimalState.MAKE_NOISE);
     }
+
 }

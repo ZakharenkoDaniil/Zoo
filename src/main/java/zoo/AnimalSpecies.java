@@ -6,6 +6,7 @@ import lombok.Setter;
 /**
  * Class for concrete animal species
  */
+
 @Getter
 @Setter
 abstract class AnimalSpecies implements EventHandler {
