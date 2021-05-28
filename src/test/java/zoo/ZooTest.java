@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import javax.xml.bind.JAXBException;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -21,11 +22,11 @@ class ZooTest {
     static void setup() {
         zoo = new Zoo();
         String filePath = ZooTest.class.getClassLoader().getResource("zooAnimals.json").getPath();
-        zoo.addAnimals(filePath);
+        zoo.addAnimalsByJson(filePath);
     }
 
     @Test
-    void addAnimals() {
+    void addAnimals() throws JAXBException {
         List<AnimalSpecies> testAnimals = new LinkedList<>();
 
         Carnivore panther = new Carnivore();
@@ -51,7 +52,7 @@ class ZooTest {
 
         Zoo testZoo = new Zoo();
         String filePath = ZooTest.class.getClassLoader().getResource("zooAnimalsTest.json").getPath();
-        testZoo.addAnimals(filePath);
+        testZoo.addAnimalsByXml(filePath);
 
         Assertions.assertEquals(testAnimals,testZoo.getZooAnimalSpecies());
     }

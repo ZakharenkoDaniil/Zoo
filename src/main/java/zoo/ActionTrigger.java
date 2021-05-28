@@ -23,6 +23,15 @@ public class ActionTrigger {
      *
      * @param animalType type of animals to visit (carnivore/herbivore)
      */
+    void watered(AnimalType animalType) {
+        System.out.println("\n--- Watering " + animalType.name() + " ---");
+        zoo.performAction(Events.DRINK, animalType);
+    }
+    void rain() {
+        System.out.println("\n--- Set rain ---");
+        zoo.performAction(Events.RAIN);
+    }
+
     void visit(AnimalType animalType) {
         System.out.println("\n--- Visiting " + animalType.name() + " ---");
         zoo.performAction(Events.KEEPER_VISIT, animalType);

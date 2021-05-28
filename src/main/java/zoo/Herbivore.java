@@ -12,6 +12,18 @@ public class Herbivore extends AnimalSpecies {
         currentState = Zoo.getAllHerbivoreState();
     }
 
+    @Override
+    public void drink() {
+        currentState = AnimalState.CALM;
+        Zoo.setAllHerbivoreState(AnimalState.CALM);
+        printDescription();
+    }
+
+    @Override
+    public void rain() {
+        return;
+    }
+
     /**
      * Method for "keeper visit" event
      * Changes state of herbivore species to MAKE_NOISE,

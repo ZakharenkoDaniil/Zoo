@@ -1,6 +1,8 @@
 package zoo;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.xml.JacksonXmlModule;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -43,14 +45,21 @@ public class Zoo {
         allHerbivoreState = AnimalState.CALM;
     }
 
-    /**
-     * Method for adding animals to the zoo from the specified JSON file
-     *
-     * @param jsonPath path to JSON file with animals info
-     */
-    public void addAnimals(String jsonPath) {
+
+    public void addAnimalsByJson(String jsonPath) {
         ObjectMapper mapper = new ObjectMapper();
-        File animalsFile = new File(jsonPath);
+        addAnimals(jsonPath, mapper);
+    }
+
+    public void addAnimalsByXml(String xmlPath) {
+        JacksonXmlModule module = new JacksonXmlModule();
+        module.setDefaultUseWrapper(false);
+        XmlMapper mapper = new XmlMapper(module);
+        addAnimals(xmlPath, mapper);
+    }
+
+    public void addAnimals(String filePath, ObjectMapper mapper) {
+        File animalsFile = new File(filePath);
         try {
             AnimalsDataFile animalsData = mapper.readValue(animalsFile, AnimalsDataFile.class);
             zooAnimalSpecies.addAll(animalsData.getCarnivoreAnimals());

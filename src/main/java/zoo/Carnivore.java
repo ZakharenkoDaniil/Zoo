@@ -16,6 +16,20 @@ public class Carnivore extends AnimalSpecies {
         currentState = Zoo.getAllCarnivoreState();
     }
 
+    @Override
+    public void drink() {
+        currentState = AnimalState.CALM;
+        Zoo.setAllCarnivoreState(AnimalState.CALM);
+        printDescription();
+    }
+
+    @Override
+    public void rain() {
+        currentState = AnimalState.MAKE_NOISE;
+        Zoo.setAllCarnivoreState(AnimalState.MAKE_NOISE);
+        printDescription();
+    }
+
     /**
      * Method for "keeper visit" event
      * Changes state of carnivore species to MAKE_NOISE,

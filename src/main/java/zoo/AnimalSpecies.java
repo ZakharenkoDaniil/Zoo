@@ -30,6 +30,10 @@ abstract class AnimalSpecies implements EventHandler {
         currentState = AnimalState.CALM;
     }
 
+    abstract public void drink();
+
+    abstract public void rain();
+
     /**
      * Defines a behavior on "keeper visit" event
      */
@@ -74,6 +78,12 @@ abstract class AnimalSpecies implements EventHandler {
     @Override
     public void updateState(Events event) {
         switch (event) {
+            case DRINK:
+                drink();
+                break;
+            case RAIN:
+                rain();
+                break;
             case KEEPER_VISIT:
                 keeperVisit();
                 break;

@@ -3,6 +3,8 @@ package zoo;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import javax.xml.bind.JAXBException;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
@@ -15,11 +17,11 @@ public class ActionTriggerTest {
     private AnimalType herbivore = AnimalType.HERBIVORE;
 
     @BeforeAll
-    static void setup() {
+    static void setup() throws JAXBException {
 
         zoo = new Zoo();
         String filePath = ZooTest.class.getClassLoader().getResource("zooAnimals.json").getPath();
-        zoo.addAnimals(filePath);
+        zoo.addAnimalsByXml(filePath);
         trigger = new ActionTrigger(zoo);
     }
 

@@ -1,15 +1,26 @@
 package zoo;
 
+
 public class Main {
 
     public static void main(String[] argv) {
-
-        String filePath = argv[0];
-
+        CommandLineArgsParser parser = new CommandLineArgsParser(argv);
+        try {
+            parser.parse();
+        } catch(IllegalArgumentException ex){
+            System.out.println(ex.getMessage());
+        }
+        String filePath = parser.getFilePath();
+        FileType type = parser.getType();
         // Create zoo
         Zoo zoo = new Zoo();
         // Add animals to the zoo
-        zoo.addAnimals(filePath);
+        if(type.equals(FileType.XML)){
+            zoo.addAnimalsByXml(filePath);
+        }
+        else{
+            zoo.addAnimalsByJson(filePath);
+        }
 
         // Create user action trigger
         ActionTrigger trigger = new ActionTrigger(zoo);
@@ -45,6 +56,12 @@ public class Main {
         zoo.printAllStates();
 
         trigger.setMorning();
+        zoo.printAllStates();
+
+        trigger.watered(herbivore);
+        zoo.printAllStates();
+
+        trigger.rain();
         zoo.printAllStates();
     }
 }
